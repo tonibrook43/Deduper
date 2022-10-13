@@ -13,16 +13,28 @@ RName for chromosome, QName for UMI infomation, Bitwise Flag for strandedness, P
 Pseudocode:
 
 1. We first want to open and read our files (SAM file and known UMI file) 
-  a. use argsparse as well
-2. Create empty dictionaries for each shared characteristics:
+  a. open separately 
+  b. use a with open loop
+  c. use argsparse as well
+2. Create empty dictionaries for each shared characteristic from SAM file:
   a. RName
   b. QName
   c. Bitwise Flag
   d. POS
   e. Cigar
-3. Create a dictionary for known UMI's (96 total known)
-  a. create a loop to iterate through the UMI file
-4. Use Samtools to sort our file
+3. Create an empty dictionary for stored natches  
+4. Create a dictionary for known UMI's (96 total known)
+  a. create a loop to iterate through the STL96 file and store them in the known UMI dictionary
+  b. use the UMI dictionary to check for matches in the QName dictionary (comes from the SAM file) 
+    i. create a UMI match dict to store these matches. 
+5. Use Samtools to sort our SAM file
+6. Check for soft clipping (sequence error, splicing, etc)
+  a. I think this will require a for loop to determine if there is a S (soft clipping) and M (alignment match) present in our Cigar string and where
+  out reference position actually begins
+6. Create an if loop to determine if a read shares the same RName, POS, and Bitwise Flag with another read
+  a. if chrom, pos, and strand are exact, discard read
+  b. if chrom, pos, and strand are not exact, store in dictionary for matches
+
 
 
 *Paper I read to understand deduplication: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1471-9
