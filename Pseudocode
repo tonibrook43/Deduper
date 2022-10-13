@@ -1,0 +1,16 @@
+Define the problem:
+During PCR, some DNA fragments may wind up being sequenced more than once if there aren't many 
+unique DNA template molecules in the initial library or if the library preparation 
+process reduces the number of distinct DNA fragments. When a fragment is sequenced more than once, it creates a duplicate which holds redundant
+information. This creates a problem because duplicates can cause over-representation of a sequence. 
+
+Define the solution:
+To solve this problem, we will perform deduplication on our SAM file after alignment. We want to dedupe after aligning to a reference genome because
+reads with identical sequences that match to the same genomic locations on the reference sequence represent duplicates. We know we have a duplicate when reads
+share the same chromosome, same starting position, same UMI (unique molecular identifier), and are on the same strand. 
+
+Pseudocode:
+
+
+
+*Paper I read to understand deduplication: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1471-9
