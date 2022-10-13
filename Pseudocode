@@ -16,24 +16,41 @@ Pseudocode:
   a. open separately 
   b. use a with open loop
   c. use argsparse as well
+*insert example of what each file looks like*
+
 2. Create empty dictionaries for each shared characteristic from SAM file:
   a. RName
   b. QName
   c. Bitwise Flag
   d. POS
   e. Cigar
-3. Create an empty dictionary for stored natches  
+*insert example of what dictionary will look like*
+
+3. Create an empty dictionary for stored natches (or send to final output file)
+
 4. Create a dictionary for known UMI's (96 total known)
   a. create a loop to iterate through the STL96 file and store them in the known UMI dictionary
   b. use the UMI dictionary to check for matches in the QName dictionary (comes from the SAM file) 
     i. create a UMI match dict to store these matches. 
-5. Use Samtools to sort our SAM file
+    ii. discard any non-matches as they represent errors.
+   *insert example of what a match and mismatch would look like*
+   
+5. Use Samtools to sort our SAM file (what should I sort by? chromosome?)
+
 6. Check for soft clipping (sequence error, splicing, etc)
   a. I think this will require a for loop to determine if there is a S (soft clipping) and M (alignment match) present in our Cigar string and where
   out reference position actually begins
-6. Create an if loop to determine if a read shares the same RName, POS, and Bitwise Flag with another read
+  *insert example of what soft clipping may look like*
+  
+7. Create an if loop to determine if a read shares the same RName, POS, and Bitwise Flag with another read
   a. if chrom, pos, and strand are exact, discard read
   b. if chrom, pos, and strand are not exact, store in dictionary for matches
+  *insert example of what a kept read and discarded read looks like*
+  
+8. Close files 
+
+High Level Functions:
+
 
 
 
