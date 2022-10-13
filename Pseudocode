@@ -7,10 +7,22 @@ information. This creates a problem because duplicates can cause over-representa
 Define the solution:
 To solve this problem, we will perform deduplication on our SAM file after alignment. We want to dedupe after aligning to a reference genome because
 reads with identical sequences that match to the same genomic locations on the reference sequence represent duplicates. We know we have a duplicate when reads
-share the same chromosome, same starting position, same UMI (unique molecular identifier), and are on the same strand. 
+share the same chromosome, same starting position, same UMI (unique molecular identifier), and have the same strandness. The shared characteristics correspond to 
+RName for chromosome, QName for UMI infomation, Bitwise Flag for strandedness, POS for starting position, and Cigar for determining soft clipping. 
 
 Pseudocode:
 
+1. We first want to open and read our files (SAM file and known UMI file) 
+  a. use argsparse as well
+2. Create empty dictionaries for each shared characteristics:
+  a. RName
+  b. QName
+  c. Bitwise Flag
+  d. POS
+  e. Cigar
+3. Create a dictionary for known UMI's (96 total known)
+  a. create a loop to iterate through the UMI file
+4. Use Samtools to sort our file
 
 
 *Paper I read to understand deduplication: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1471-9
