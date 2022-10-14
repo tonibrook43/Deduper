@@ -50,7 +50,9 @@ Pseudocode:
 8. Close files 
 
 High Level Functions:
-
+1. Bitwise Flag 4 function
+2. Bitwise Flag 16 funciton
+2. Cigar string function
 
 
 
