@@ -12,10 +12,8 @@
 #Pathways to files:
 conda activate base 
 
-# file= "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/C1_SE_uniqAlign.sam"
-# out_file= "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/C1_SE_uniqAlign_sbatched.sam"
-# umi= "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/STL96.txt"
-
-# ./projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/scripts/brooks_deduper.py -f $file -u $umi -o $out_file
+# -f "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/C1_SE_uniqAlign.sam"
+# -o = "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/C1_SE_uniqAlign_sbatched.sam"
+# -u = "/projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/STL96.txt"
 
 ./brooks_deduper.py -f /projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/C1_SE_uniqAlign.sam -u /projects/bgmp/tonib/bioinfo/Bi624/Dedupe/deduper/Deduper/STL96.txt -o C1_SE_uniqAlign_sbatched.sam
