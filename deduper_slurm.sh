@@ -3,11 +3,11 @@
 #SBATCH --partition=bgmp       ### Partition
 #SBATCH --job-name=Deduper        ### Job Name
 #SBATCH --output=Deduper_»j.out ### file to store output
-#SBATCH --error=Deduper-&j.err ### File in which to store job error messages
+#SBATCH --error=Deduper-&j.err ### File to store job error messages
 #SBATCH --time=12:00:00        ### WallTime
 #SBATCH --nodes=1              ### Number of Nodes
 #SBATCH --ntasks=1             ### Number of tasks per array job
-#SBATCH --cpus-per-task=8            ### Number of CPU cores per task, same as saying 8 cores
+#SBATCH --cpus-per-task=8            ### Number of CPU cores per task
 
 #Pathways to files:
 conda activate base 
